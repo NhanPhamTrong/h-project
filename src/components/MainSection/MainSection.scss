@@ -1,0 +1,183 @@
+@import "../../assets/global-styles/global-styles";
+
+.main-section {
+    min-height: 100vh;
+    background: $background;
+
+    .illustrator {
+        height: 30vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        img {
+            height: 100%;
+        }
+    }
+
+    .images {
+        padding: 1rem 0;
+        position: relative;
+
+        ul {
+            display: grid;
+            grid-auto-flow: column;
+            grid-column-gap: 5vw;
+            place-items: center;
+            position: relative;
+            transition: 0.4s;
+            
+            li {
+                height: 100%;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                img {
+                    height: 100%;
+                    width: 30vw;
+                    cursor: pointer;
+                }
+            }
+
+            li:before {
+                content: "";
+                height: 100%;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.6);
+                pointer-events: none;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+
+            li.active {
+                img {
+                    border: $primary solid 0.25rem;
+                    box-shadow: 0 0 0.75rem rgba(230, 230, 230, 0.6),
+                                0 0 1.5rem rgba(230, 230, 230, 0.4),
+                                0 0 2.25rem rgba(230, 230, 230, 0.2);
+                }
+            }
+            
+            li.active:before {
+                opacity: 0;
+            }
+        }
+    }
+
+    .container {
+        padding: 0 1rem;
+        color: $on-background;
+
+        hr {
+            margin: 0.5rem 0;
+            border-color: $on-background;
+        }
+
+        p {
+            padding: 0.5rem 0;
+            color: $on-background-variant;
+        }
+
+        .social-media {
+            li {
+                button {
+                    height: 2rem;
+                    width: 2rem;
+                    margin-right: 1rem;
+                    color: var(--i);
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .main-section {
+        .illustrator {
+            height: 50vh;
+        }
+
+        .images {
+            button {
+                height: 3rem;
+                width: 3rem;
+            }
+        }
+
+        .container {
+            padding: 0 2rem;
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .main-section {
+        .illustrator {
+            height: 60vh;
+        }
+
+        .container {
+            padding: 0 4rem;
+        }
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .main-section {
+        height: 100vh;
+
+        .illustrator {
+            padding-left: 25vw;
+        }
+
+        .images {
+            height: 100vh;
+            padding: 0;
+            overflow: hidden;
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            ul {
+                grid-auto-flow: row;
+                grid-column-gap: 0;
+                grid-row-gap: 5vh;
+
+                li {
+                    height: 16vh;
+                    width: 100%;
+
+                    img {
+                        height: 100%;
+                        width: auto;
+                    }
+                }
+            }
+        }
+
+        .container {
+            margin-top: 2rem;
+            padding-left: calc(25vw + 3rem);
+        }
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .main-section {
+        .images {
+            left : 5vw;
+
+            ul {
+                grid-row-gap: 5vh;
+
+                li {
+                    height: 16vh;
+                }
+            }
+        }
+    }
+}

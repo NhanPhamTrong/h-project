@@ -1,0 +1,19 @@
+@import "reset";
+@import "variables";
+@import "function";
+
+body {
+    font-family: 'DM Sans', sans-serif;
+
+    #root {
+        width: 100%;
+        font-size: 1rem;
+        position: relative;
+
+        main {
+            width: 100%;
+            background: $background;
+            overflow-x: hidden;
+        }
+    }
+}

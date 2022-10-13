@@ -1,0 +1,104 @@
+@import "../../assets/global-styles/global-styles";
+
+nav {
+    height: 100vh;
+    position: fixed;
+    z-index: 100;
+
+    .nav-container {
+        height: 100%;
+        width: 16rem;
+        padding-top: 4rem;
+        background: $primary;
+        position: absolute;
+        top: 0;
+
+        li {
+            button {
+                width: 100%;
+                padding: 0.5rem;
+                display: flex;
+                align-items: center;
+                font-size: 1.25rem;
+                font-weight: 700;
+                text-align: left;
+
+                ion-icon {
+                    margin-right: 0.5rem;
+                    transition: 0.4s;
+                }
+            }
+
+            ul {
+                li {
+                    button {
+                        padding: 0.5rem 2rem;
+                        color: $on-primary-variant;
+                        display: block;
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+
+        li.active {
+            button {
+                ion-icon {
+                    transform: rotate(90deg);
+                }
+            }
+        }
+    }
+
+    .menu-toggler {
+        height: 3rem;
+        width: 3rem;
+        background: $primary;
+        position: absolute;
+        top: 0;
+
+        span {
+            height: 0.25rem;
+            width: 2.5rem;
+            background: $on-primary;
+            border-radius: 10rem;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: 0.4s;
+        }
+
+        span:nth-child(1) {
+            top: calc(50% - 0.75rem);
+        }
+
+        span:nth-child(2) {
+            top: 50%;
+        }
+
+        span:nth-child(3) {
+            top: calc(50% + 0.75rem);
+        }
+    }
+}
+
+nav.active {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+
+    .menu-toggler {
+        span:nth-child(1) {
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        span:nth-child(2) {
+            opacity: 0;
+        }
+
+        span:nth-child(3) {
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+    }
+}
