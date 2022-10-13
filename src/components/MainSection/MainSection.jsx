@@ -55,6 +55,8 @@ export const MainSection = (props) => {
         })
     })
 
+    console.log(imgListStyle)
+
     return (
         <motion.div className="main-section"
             key={props.data.id}
