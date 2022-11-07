@@ -2,7 +2,6 @@ import "./MainSection.scss"
 import { useState } from "react"
 import { wrap } from "popmotion"
 import { motion, AnimatePresence } from "framer-motion"
-import $ from "jquery";
 
 const variants = {
     enter: (direction) => {
@@ -32,7 +31,6 @@ const openInNewTab = (url) => {
 export const MainSection = (props) => {
     const [[illustrator, direction], setIllustrator] = useState([0, 0])
     const imageIndex = wrap(0, props.data.images.length, illustrator)
-    const [imgListStyle, setImgListStyle] = useState()
 
     const ClickImage = (e) => {
         const index = props.data.images.indexOf(e.target.getAttribute("src"))
@@ -45,17 +43,9 @@ export const MainSection = (props) => {
         }
     }
 
-    $(window).resize(() => {
-        setImgListStyle($(window).width() < 992 ? {
-            left: "calc(35vw * " + (-imageIndex + 1) + ")",
-            top: "0"
-        } : {
-            left: "0",
-            top: "calc(21vh * " + (-imageIndex + 2) + ")"
-        })
-    })
-
-    console.log(imgListStyle)
+    const OpenModal = () => {
+        props.OpenModal()
+    }
 
     return (
         <motion.div className="main-section"
@@ -76,37 +66,24 @@ export const MainSection = (props) => {
                         transition={{ duration: 0.4 }}/>
                 </div>
             </AnimatePresence>
-            <div className="images">
-                <ul style={$(window).width() < 992 ? {
-                    left: "calc(35vw * " + (-imageIndex + 1) + ")",
-                    top: "0"
-                } : {
-                    left: "0",
-                    top: "calc(21vh * " + (-imageIndex + 2) + ")"
-                }}>
-                {/* <ul style={imgListStyle}> */}
-                    {props.data.images.map((img, index) => {
-                        return (
-                            <li key={index} className={props.data.images.indexOf(img) === imageIndex ? "active" : ""}>
-                                <img src={img} onClick={ClickImage} alt="" />
-                            </li>
-                        )
-                    })}
-                </ul>
-            </div>
+            <ul className="images" style={{ left: "calc(20vw * " + (-imageIndex + 2) + ")" }}>
+                {props.data.images.map((img, index) => {
+                    return (
+                        <li key={index} className={props.data.images.indexOf(img) === imageIndex ? "active" : ""}>
+                            <img src={img} onClick={ClickImage} alt="" />
+                        </li>
+                    )
+                })}
+            </ul>
             <div className="container">
                 <h1>{props.data.name}</h1>
                 <p>{props.data.content}</p>
                 <hr />
-                {/* <ul className="videos">
-                    {props.data.videos.map((vid, index) => {
-                        return (
-                            <li key={index}>
-                                <iframe width="420" height="315" src={vid} title="Bohemian" />
-                            </li>
-                        )
-                    })}
-                </ul> */}
+                <button className="playlist" type="button" onClick={OpenModal}>
+                    Playlist
+                    <ion-icon name="list"></ion-icon>
+                </button>
+                <hr />
                 <ul className="social-media">
                     <li>
                         <button type="button" style={{"--i" : "rgb(255, 0, 0)"}} onClick={() => openInNewTab("https://dribbble.com/Nhan_Pham")}>

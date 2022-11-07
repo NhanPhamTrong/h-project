@@ -6,9 +6,14 @@ export const MainSectionData = [
         images: [
             "https://images2.alphacoders.com/108/thumb-1920-1083954.png",
             "https://images5.alphacoders.com/986/thumb-1920-986635.jpg",
+            "https://i.pinimg.com/originals/b5/20/42/b52042c641d4f697afe6bbe608b34080.png",
+            "https://ih1.redbubble.net/image.2114925118.7509/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
             "https://wallpaperforu.com/wp-content/uploads/2022/03/Wallpaper-Video-Game-Honkai-Impact-3rd-Murata42.jpg",
             "https://images3.alphacoders.com/108/1080161.png",
             "https://c4.wallpaperflare.com/wallpaper/371/539/829/video-game-honkai-impact-3rd-yae-sakura-honkai-impact-3rd-hd-wallpaper-preview.jpg"
+        ],
+        playlist: [
+            "https://www.youtube.com/embed/aDuEi83bkeM"
         ]
     },
     {
@@ -20,6 +25,9 @@ export const MainSectionData = [
             "https://images3.alphacoders.com/108/1080161.png",
             "https://images5.alphacoders.com/986/thumb-1920-986635.jpg",
             "https://c4.wallpaperflare.com/wallpaper/371/539/829/video-game-honkai-impact-3rd-yae-sakura-honkai-impact-3rd-hd-wallpaper-preview.jpg"
+        ],
+        playlist: [
+            "https://www.youtube.com/embed/aDuEi83bkeM"
         ]
     }
 ]

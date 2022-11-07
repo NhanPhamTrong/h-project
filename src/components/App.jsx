@@ -1,6 +1,7 @@
 import { Navbar } from "./Navbar/Navbar"
 import { MainSection } from "./MainSection/MainSection"
 import { MainSectionData } from "./MainSection/MainSectionData"
+import { Modal } from "./Modal/Modal"
 import { AnimatePresence } from "framer-motion"
 import { useState } from "react"
 
@@ -17,13 +18,13 @@ export const App = () => {
 
     return (
         <>
-            <Navbar onClickMember={ClickMember} />
-            
+            <Navbar onClickMember={ClickMember} />            
             <main>
                 <AnimatePresence>
                     <MainSection data={MainSectionData[dataIndex]} />
                 </AnimatePresence>
             </main>
+            <Modal />
         </>
     )
 }

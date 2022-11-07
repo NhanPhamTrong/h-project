@@ -1,0 +1,110 @@
+@import "../../assets/global-styles/global-styles";
+
+#modal {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+
+    .modal-background {
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        position: absolute;
+    }
+
+    .modal-container {
+        height: 90vh;
+        width: 85vw;
+        padding: 1rem;
+        background: $background;
+        border-radius: 1rem;
+        position: relative;
+
+        .header {
+            color: $on-background;
+            display: flex;
+            justify-content: space-between;
+
+            button {
+                color: $on-background;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                font-size: 2rem;
+            }
+        }
+
+        .play-section {
+            margin: 1rem 0;
+
+            .rhap_container {
+                background: $primary;
+            }
+        }
+
+        ul {
+            padding: 1rem 0;
+            background: $primary;
+            border-radius: 1rem;
+            display: grid;
+
+            li {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                transition: 0.4s;
+
+                .name {
+                    height: 100%;
+                    width: 100%;
+                    padding: 1rem 0.5rem;
+                    text-align: left;
+                }
+
+                .item-menu {
+                    position: relative;
+
+                    .item-menu-toggler {
+                        height: 2.5rem;
+                        width: 2.5rem;
+                        border-radius: 10rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        transition: 0.4s;
+                    }
+
+                    .item-menu-toggler:hover {
+                        background: rgba(0, 0, 0, 0.2);
+                    }
+
+                    .item-options {
+                        background: $primary;
+                        position: absolute;
+                        top: 2.5rem;
+                        right: 0;
+
+                        button {
+                            width: 100%;
+                            padding: 0.5rem;
+                        }
+
+                        button:nth-child(1) {
+                            width: max-content;
+                        }
+
+                        button:hover {
+                            background: rgba(0, 0, 0, 0.2);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

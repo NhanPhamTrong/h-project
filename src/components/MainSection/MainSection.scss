@@ -2,7 +2,9 @@
 
 .main-section {
     min-height: 100vh;
+    padding-top: 1rem;
     background: $background;
+    overflow-x: hidden;
 
     .illustrator {
         height: 30vh;
@@ -16,77 +18,92 @@
     }
 
     .images {
-        padding: 1rem 0;
+        width: fit-content;
+        padding: 1.5rem 0;
+        display: grid;
+        grid-auto-flow: column;
+        place-items: center;
         position: relative;
-
-        ul {
-            display: grid;
-            grid-auto-flow: column;
-            grid-column-gap: 5vw;
-            place-items: center;
+        transition: 0.4s;
+        
+        li {
+            height: 10vw;
+            width: 16vw;
+            margin: 0 2vw;
             position: relative;
-            transition: 0.4s;
-            
-            li {
-                height: 100%;
-                position: relative;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
 
-                img {
-                    height: 100%;
-                    width: 30vw;
-                    cursor: pointer;
-                }
-            }
-
-            li:before {
-                content: "";
+            img {
                 height: 100%;
                 width: 100%;
-                background: rgba(0, 0, 0, 0.6);
-                pointer-events: none;
-                position: absolute;
-                left: 0;
-                top: 0;
+                object-fit: contain;
+                cursor: pointer;
             }
+        }
 
-            li.active {
-                img {
-                    border: $primary solid 0.25rem;
-                    box-shadow: 0 0 0.75rem rgba(230, 230, 230, 0.6),
-                                0 0 1.5rem rgba(230, 230, 230, 0.4),
-                                0 0 2.25rem rgba(230, 230, 230, 0.2);
-                }
+        li:before {
+            content: "";
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            pointer-events: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        li.active {
+            img {
+                border: $primary solid 0.25rem;
+                box-shadow: 0 0 0.5rem rgba(230, 230, 230, 0.6),
+                            0 0 1rem rgba(230, 230, 230, 0.4),
+                            0 0 1.5rem rgba(230, 230, 230, 0.2);
             }
-            
-            li.active:before {
-                opacity: 0;
-            }
+        }
+
+        li.active:before {
+            opacity: 0;
         }
     }
 
     .container {
-        padding: 0 1rem;
-        color: $on-background;
+        padding: 1rem;
 
+        h1 {
+            margin-bottom: 1rem;
+            color: $on-background;
+        }
+    
+        p {
+            color: $on-background-variant;
+        }
+    
         hr {
-            margin: 0.5rem 0;
+            margin: 1rem 0;
             border-color: $on-background;
         }
 
-        p {
-            padding: 0.5rem 0;
-            color: $on-background-variant;
-        }
+        .playlist {
+            color: $on-background;
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
 
-        .social-media {
+            ion-icon {
+                margin-left: 0.5rem;
+            }
+        }
+    
+        .social-media {    
             li {
                 button {
                     height: 2rem;
                     width: 2rem;
-                    margin-right: 1rem;
+                    margin-right: 2rem;
                     color: var(--i);
                     font-size: 2rem;
                 }
@@ -101,27 +118,8 @@
             height: 50vh;
         }
 
-        .images {
-            button {
-                height: 3rem;
-                width: 3rem;
-            }
-        }
-
         .container {
-            padding: 0 2rem;
-        }
-    }
-}
-
-@media only screen and (min-width: 768px) {
-    .main-section {
-        .illustrator {
-            height: 60vh;
-        }
-
-        .container {
-            padding: 0 4rem;
+            padding: 2rem;
         }
     }
 }
@@ -129,54 +127,38 @@
 @media only screen and (min-width: 992px) {
     .main-section {
         height: 100vh;
+        padding-top: 0;
+        display: grid;
+        grid-template-columns: 40vw 60vw;
+        grid-template-rows: calc(100vh - 10vw - 3rem) calc(10vw + 3rem);
 
         .illustrator {
-            padding-left: 25vw;
-        }
+            grid-column: 1;
+            grid-row: 1;
+            height: 100%;
+            display: flex;
+            align-items: center;
 
-        .images {
-            height: 100vh;
-            padding: 0;
-            overflow: hidden;
-            position: absolute;
-            left: 0;
-            top: 0;
-
-            ul {
-                grid-auto-flow: row;
-                grid-column-gap: 0;
-                grid-row-gap: 5vh;
-
-                li {
-                    height: 16vh;
-                    width: 100%;
-
-                    img {
-                        height: 100%;
-                        width: auto;
-                    }
-                }
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: contain;
             }
         }
 
-        .container {
-            margin-top: 2rem;
-            padding-left: calc(25vw + 3rem);
-        }
-    }
-}
-
-@media only screen and (min-width: 1200px) {
-    .main-section {
         .images {
-            left : 5vw;
+            grid-column: 1/3;
+            grid-row: 2;
+        }
 
-            ul {
-                grid-row-gap: 5vh;
+        .container {
+            grid-column: 2;
+            grid-row: 1;
 
-                li {
-                    height: 16vh;
-                }
+            p {
+                max-height: 30vh;
+                overflow: auto;
+                position: relative;
             }
         }
     }

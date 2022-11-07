@@ -4,6 +4,7 @@
 
 body {
     font-family: 'DM Sans', sans-serif;
+    background: $background;
 
     #root {
         width: 100%;
@@ -12,8 +13,6 @@ body {
 
         main {
             width: 100%;
-            background: $background;
-            overflow-x: hidden;
         }
     }
 }
