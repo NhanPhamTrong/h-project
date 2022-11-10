@@ -49,7 +49,7 @@ export const MainSection = (props) => {
 
     return (
         <motion.div className="main-section"
-            key={props.data.id}
+            key={props.data.name}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

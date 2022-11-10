@@ -1,5 +1,5 @@
 import "./Navbar.scss"
-import { NavbarData } from "./NavbarData"
+import { Data } from "../Data"
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
@@ -14,10 +14,10 @@ const Content = (props) => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}>
-            {props.data.member.map((member, ind) => {
+            {props.data.member.map((memberItem, index) => {
                 return (
-                    <li key={ind}>
-                        <button type="button" onClick={ClickMember} name={member}>{member}</button>
+                    <li key={index}>
+                        <button type="button" onClick={ClickMember} name={memberItem.name}>{memberItem.name}</button>
                     </li>
                 )
             })}
@@ -60,7 +60,7 @@ export const Navbar = (props) => {
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -256 }}
                             transition={{duration: 0.4}}>
-                            {NavbarData.map((data, index) => {
+                            {Data.map((data, index) => {
                                 return (
                                     <Item key={index} data={data} onClickMember={ClickMember} />
                                 )
